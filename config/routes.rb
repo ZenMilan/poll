@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :options, only: [:create]
   resources :questions
   get '/admin' => 'admin#dashboard'
   put '/votes' => 'votes#update'

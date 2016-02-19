@@ -17,6 +17,15 @@
     </fieldset>
   <% end %>
 
+  <hr>
+
+  <%= form_for @option do |f| %>
+    <%= hidden_field :option, :question_id, value: @question.id %>
+    <%= hidden_field :redirect, :question_secret, value: @question.secret %>
+    <%= f.text_field :title %>
+    <%= f.submit "Add" %>
+  <% end %>
+
   <p><a href="/<%= @question.secret %>/results">Go to results</a></p>
 
 </div>

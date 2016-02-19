@@ -28,6 +28,7 @@ class QuestionsController < ApplicationController
   def show
     vote_id = cookies["vote_#{@question.secret}"]
     @vote = Vote.where({secret: vote_id}).first_or_initialize
+    @option = Option.new(question_id: @question.id)
   end
 
   def results
